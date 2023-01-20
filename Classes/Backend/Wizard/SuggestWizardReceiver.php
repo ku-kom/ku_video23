@@ -27,7 +27,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
     {
         $rows = [];
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
-        $url = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ku_video23', 'uri');
+        $url = 'https://www2.adm.ku.dk/selv/pls/!app_tlfbog_v2.soeg';
         $query = strtolower($params['value']);
         $additionalOptions = [
             //'debug' => true,

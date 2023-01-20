@@ -8,8 +8,8 @@
  */
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'KU Bootstrap modals',
-    'description' => 'Provides a content element for creating dynamic modal popups for any website running Bootstrap 5.',
+    'title' => 'KU Video23',
+    'description' => 'Fetch videos from TwentyThree.',
     'category' => 'templates',
     'constraints' => [
         'depends' => [

@@ -85,9 +85,3 @@ $ku_video23 = [
 $GLOBALS['TCA']['tt_content']['types'][$contentTypeName] = $ku_video23;
 //$GLOBALS['TCA']['tt_content']['types']['list'] = $ku_video23;
 
-/**
- * Registers backend previewRenderer for custom content element and plugin
- */
-
-$GLOBALS['TCA']['tt_content']['types'][$contentTypeName]['previewRenderer'] = \UniversityOfCopenhagen\KuVideo23\Backend\Preview\contactBoxPreviewRenderer::class;
-//$GLOBALS['TCA']['tt_content']['types']['list']['previewRenderer'] = \UniversityOfCopenhagen\KuVideo23\Backend\Preview\contactBoxPreviewRenderer::class;
