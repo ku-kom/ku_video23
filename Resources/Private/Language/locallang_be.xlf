@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-01-15UTC07:12:052">
+        <header>
+        </header>
+        <body>
+        <trans-unit id="video23_title">
+            <source>KU get video from Video23</source>
+        </trans-unit>
+        <trans-unit id="video23_desc">
+            <source>Fetch video by its ID or title</source>
+        </trans-unit>
+        </body>
+    </file>
+</xliff>

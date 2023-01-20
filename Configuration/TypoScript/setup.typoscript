@@ -1,0 +1,64 @@
+##############################################
+####### CTYPE: KU SWIPERJS SLIDESHOW #########
+##############################################
+
+tt_content.ku_video23 >
+tt_content.ku_video23 =< lib.contentElement
+tt_content.ku_video23 {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Modal
+    templateRootPaths {
+        10 = EXT:ku_video23/Resources/Private/Templates/
+        20 = {$page.templates.templateRootPath}
+    }
+	partialRootPaths {
+		10 = EXT:ku_video23/Resources/Private/Partials/
+        20 = {$page.templates.partialRootPath}
+	}
+
+    layoutRootPaths {
+        10 = EXT:ku_video23/Resources/Private/Layouts/
+        20 = {$page.templates.layoutRootPath}
+    }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = image
+            as = image
+        }
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            if.isTrue.field = tx_ku_video23_content_elements
+            table = tt_content
+            uidInList.field = tx_ku_video23_content_elements
+            pidInList = 0
+            orderBy = sorting
+            as = records
+        }
+    }
+}
+
+##########################
+#### OPTION TO ADD CSS ###
+##########################
+lib.pagecss = TEXT
+lib.pagecss {
+    if.isTrue = {$page.assets.extraCss}
+    value = {$page.assets.extraCss}
+}
+
+##########################
+#### OPTION TO ADD JS ####
+##########################
+lib.pagejs = TEXT
+lib.pagejs {
+    if.isTrue = {$page.assets.extraJs}
+    value = {$page.assets.extraJs}
+}

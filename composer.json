@@ -1,0 +1,18 @@
+{
+    "name": "university-of-copenhagen/ku-video23",
+    "type": "typo3-cms-extension",
+    "description": "Fetch videos from TwentyThree",
+    "homepage": "https://www.ku.dk/",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "autoload": {
+        "psr-4": {
+            "UniversityOfCopenhagen\\KuVideo23\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ku_video23"
+        }
+    }
+}

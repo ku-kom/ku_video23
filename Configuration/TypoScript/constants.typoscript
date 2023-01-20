@@ -1,0 +1,16 @@
+page {
+    templates {
+        # cat=KU Bootstrap 5 modals - Content Element - Templates //103; type=string; label=Layout Root Path: Path to layouts (with a trailing slash).
+        layoutRootPath = EXT:ku_video23/Resources/Private/Layouts/
+        # cat=KU Bootstrap 5 modals - Content Element - Templates //102; type=string; label=Partial Root Path: Path to partials (with a trailing slash).
+        partialRootPath = EXT:ku_video23/Resources/Private/Partials/
+        # cat=KU Bootstrap 5 modals - Content Element - Templates //101; type=string; label=Layout Root Path: Path to templates (with a trailing slash).
+        templateRootPath = EXT:ku_video23/Resources/Private/Templates/
+    }
+    assets {
+        # cat=KU Bootstrap 5 modals - Content Element - Assets //105; type=string; label=CSS assets: Path to stylesheet (with a trailing slash).
+        extraCss =
+        # cat=KU Bootstrap 5 modals - Content Element - Assets //106; type=string; label=JavaScript assets: Path to javaScript file (with a trailing slash).
+        extraJs = 
+    }
+}
