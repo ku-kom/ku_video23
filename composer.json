@@ -5,6 +5,10 @@
     "homepage": "https://www.ku.dk/",
     "license": ["GPL-2.0-or-later"],
     "keywords": ["TYPO3 CMS"],
+    "require": {
+        "league/oauth2-client": "^2.6.0",
+        "typo3/json-response": "*@dev"
+    },
     "autoload": {
         "psr-4": {
             "UniversityOfCopenhagen\\KuVideo23\\": "Classes/"

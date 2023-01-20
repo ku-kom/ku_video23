@@ -10,6 +10,9 @@
         <trans-unit id="video23_desc">
             <source>Fetch video by its ID or title</source>
         </trans-unit>
+        <trans-unit id="error">
+            <source>Error fetching video</source>
+        </trans-unit>
         </body>
     </file>
 </xliff>

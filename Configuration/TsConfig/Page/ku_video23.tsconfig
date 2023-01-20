@@ -1,16 +1,17 @@
 ####################################
 #### NEW CONTENT ELEMENT WIZARD ####
 ####################################
-mod.wizards.newContentElement.wizardItems.interactive {
+mod.wizards.newContentElement.wizardItems.plugins {
     elements {
         ku_video23 {
             iconIdentifier = ku-video23-icon
             title = LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:video23_title
-            description = LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:modal_desc
+            description = LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:video23_desc
             tt_content_defValues {
-                CType = ku_video23
+                CType = list
+                list_type = kuvideo23_pi1
             }
         }
     }
-    show := addToList(ku_video23)
+    show := addToList(kuvideo23_pi1)
 }
