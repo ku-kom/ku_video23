@@ -4,9 +4,7 @@
         <header>
         </header>
         <body>
-         <trans-unit id="modal_close">
-            <source>Close</source>
-        </trans-unit>
+
         </body>
     </file>
 </xliff>

@@ -1,64 +1,42 @@
-##############################################
-####### CTYPE: KU SWIPERJS SLIDESHOW #########
-##############################################
-
-tt_content.ku_video23 >
-tt_content.ku_video23 =< lib.contentElement
-tt_content.ku_video23 {
-
-    ################
-    ### TEMPLATE ###
-    ################
-    templateName = Modal
+######################################
+#### cType KU PHONEBOOK ##############
+######################################
+lib.contentElement = FLUIDTEMPLATE
+lib.contentElement {
+    templateName = Default
     templateRootPaths {
-        10 = EXT:ku_video23/Resources/Private/Templates/
-        20 = {$page.templates.templateRootPath}
+        7 = EXT:ku_video23/Resources/Private/Templates/ContentElements/
     }
-	partialRootPaths {
-		10 = EXT:ku_video23/Resources/Private/Partials/
-        20 = {$page.templates.partialRootPath}
-	}
-
+    partialRootPaths {
+        7 = EXT:ku_video23/Resources/Private/Partials/ContentElements/
+    }
     layoutRootPaths {
-        10 = EXT:ku_video23/Resources/Private/Layouts/
-        20 = {$page.templates.layoutRootPath}
-    }
-
-    ##########################
-    ### DATA PREPROCESSING ###
-    ##########################
-    dataProcessing {
-        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
-        10 {
-            references.fieldName = image
-            as = image
-        }
-        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-        20 {
-            if.isTrue.field = tx_ku_video23_content_elements
-            table = tt_content
-            uidInList.field = tx_ku_video23_content_elements
-            pidInList = 0
-            orderBy = sorting
-            as = records
-        }
+        7 = EXT:ku_video23/Resources/Private/Layouts/ContentElements/
     }
 }
 
-##########################
-#### OPTION TO ADD CSS ###
-##########################
-lib.pagecss = TEXT
-lib.pagecss {
-    if.isTrue = {$page.assets.extraCss}
-    value = {$page.assets.extraCss}
-}
+#################################
+#### MAKE PLUGIN ACT AS cTYPE ###
+#################################
+tt_content.ku_video23 >
+tt_content.ku_video23 =< tt_content.list.20.kuvideo23_pi1
 
-##########################
-#### OPTION TO ADD JS ####
-##########################
-lib.pagejs = TEXT
-lib.pagejs {
-    if.isTrue = {$page.assets.extraJs}
-    value = {$page.assets.extraJs}
+#################
+#### PLUGIN #####
+#################
+plugin.tx_kuvideo23 {
+    view {
+        templateRootPaths {
+             0 = EXT:ku_video23/Resources/Private/Templates/
+             1 = {$plugin.tx_kuvideo23.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:ku_video23/Resources/Private/Partials/
+            1 = {$plugin.tx_kuvideo23.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:ku_video23/Resources/Private/Layouts/
+            1 = {$plugin.tx_kuvideo23.view.layoutRootPath}
+        }
+    }
 }
