@@ -4,6 +4,12 @@
         <header>
         </header>
         <body>
+        <trans-unit id="webservice">
+            <source>Video 23 api</source>
+        </trans-unit>
+        <trans-unit id="itemsPerPage">
+            <source>List items per page</source>
+        </trans-unit>
         <trans-unit id="video23_title">
             <source>KU get video from Video23</source>
         </trans-unit>

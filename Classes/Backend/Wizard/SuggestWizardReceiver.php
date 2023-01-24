@@ -27,50 +27,52 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
     {
         $rows = [];
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
-        $url = 'https://www2.adm.ku.dk/selv/pls/!app_tlfbog_v2.soeg';
-        $query = strtolower($params['value']);
+        $url = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ku_video23', 'uri');
+        //$query = strtolower($params['value']);
         $additionalOptions = [
             //'debug' => true,
             'form_params' => [
               'format' => 'json',
-              'startrecord' => 0,
-              'recordsperpage' => 100,
-              'searchstring' => $query
+              //'searchstring' => $query
             ]
           ];
 
         if (!empty($url)) {
             try {
                 $response = $requestFactory->request($url, 'POST', $additionalOptions);
+                
                 // Get the content on a successful request
                 if ($response->getStatusCode() === 200) {
-                    if (false !== strpos($response->getHeaderLine('Content-Type'), 'application/json')) {
+                   // if (false !== strpos($response->getHeaderLine('Content-Type'), 'application/json')) {
                         $string = $response->getBody()->getContents();
-                        // getContents() returns a string
+                        //getContents() returns a string
+                        // Remove invalid varible from video23 response
+                        $visual = preg_replace('/^var visual = /', '', $string);
                         // Convert string back to json
-                        $string = iconv('ISO-8859-1', 'UTF-8', $string);
-                        $data = json_decode((string) $string, true);
-
-                        $items = $data['root']['employees'];
-                        foreach ($items as $employee) {
+                        $visual = iconv('ISO-8859-1', 'UTF-8', $visual);
+                        $data = json_decode((string) $visual, true);
+                    
+                        $videos = $data['photos'];
+                        var_dump(gettype($data));
+                        foreach ($videos as $video) {
                             $newUid = StringUtility::getUniqueId('NEW');
                             $rows[$this->table . '_' . $newUid] = [
                                 'class' => '',
-                                'label' => $employee['PERSON_FORNAVN'],
+                                'label' => $video['title'],
                                 'path' => '',
                                 'sprite' => '',
                                 'style' => '',
                                 'table' => $this->table,
                                 'text' => '<table class="table-items">
                                         <tr>
-                                            <td class="img-fluid img-employee"><img src="'. $employee['FOTOURL'] .'" alt="" class="list-item-img" /></td>
-                                            <td><div class="employee-name">'.$employee['PERSON_FORNAVN'] . ' ' . $employee['PERSON_EFTERNAVN'] .'</div>'. $employee['ANSAT_UOFF_STIL_TEKST'] .'<br>'. $employee['ANSAT_ARB_EMAIL'] .'</td>
+                                            <td class="img-fluid video-thumbnail"><img src="'. $video['quad100_download'] .'" alt="" class="list-item-img" /></td>
+                                            <td><div class="video-title">'.$video['title'] . '</div><br>'. $video['publish_date__date'] .'</td>
                                         </tr>
                                     </table>',
-                                'uid' => $employee['ANSAT_ARB_EMAIL'],
+                                'uid' => $newUid . $video['photo_id'],
                             ];
                         }
-                    }
+                    //}
                 } else {
                     // Sisplay error message
                     $flashMessage = GeneralUtility::makeInstance(
