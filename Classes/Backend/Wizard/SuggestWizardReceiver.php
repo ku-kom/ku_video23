@@ -11,14 +11,14 @@ namespace UniversityOfCopenhagen\KuVideo23\Backend\Wizard;
  * LICENSE.txt file that was distributed with this source code.
  */
 
- use TYPO3\CMS\Backend\Form\Wizard\SuggestWizardDefaultReceiver;
- use TYPO3\CMS\Core\Utility\GeneralUtility;
- use TYPO3\CMS\Core\Utility\StringUtility;
- use TYPO3\CMS\Core\Http\RequestFactory;
- use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
- use TYPO3\CMS\Core\Localization\LanguageService;
- use TYPO3\CMS\Core\Messaging\FlashMessage;
- use TYPO3\CMS\Core\Messaging\FlashMessageService;
+use TYPO3\CMS\Backend\Form\Wizard\SuggestWizardDefaultReceiver;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\StringUtility;
+use TYPO3\CMS\Core\Http\RequestFactory;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Localization\LanguageService;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\FlashMessageService;
 
 class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
 {
@@ -42,12 +42,10 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                 // Get the content on a successful request
                 if ($response->getStatusCode() === 200) {
                     if (false !== strpos($response->getHeaderLine('Content-Type'), 'application/x-javascript')) {
-                        //getContents() returns a string
+                        // getContents() returns a string
                         $string = $response->getBody()->getContents();
-                        // Remove invalid varible from video23 response
+                        // Remove invalid "var visual" variable from video23 response
                         $visual = preg_replace('/^var visual = /', '', $string);
-                        // Convert string back to json
-                        $visual = iconv('ISO-8859-1', 'UTF-8', $visual);
                         $data = json_decode((string) $visual, true);
                         $videos = $data['photos'];
                         var_dump($videos);
