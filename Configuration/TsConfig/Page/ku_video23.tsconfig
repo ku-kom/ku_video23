@@ -8,10 +8,9 @@ mod.wizards.newContentElement.wizardItems.plugins {
             title = LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:video23_title
             description = LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:video23_desc
             tt_content_defValues {
-                CType = list
-                list_type = kuvideo23_pi1
+                CType = ku_video23
             }
         }
     }
-    show := addToList(kuvideo23_pi1)
+    show := addToList(ku_video23)
 }

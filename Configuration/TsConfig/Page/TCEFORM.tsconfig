@@ -1,0 +1,53 @@
+TCEFORM {
+    tt_content {
+        # cType ku_video23:
+        header_layout {
+           types {
+                ku_video23 {
+                    disabled = 1
+                }
+            }
+        }
+
+        header {
+           types {
+                ku_video23 {
+                    disabled = 1
+                }
+            }
+        }
+
+        header_link {
+           types {
+                ku_video23 {
+                    disabled = 1
+                }
+            }
+        }
+
+        subheader {
+           types {
+                ku_video23 {
+                    disabled = 1
+                }
+            }
+        }
+
+        header_position {
+           types {
+                ku_video23 {
+                    disabled = 1
+                }
+            }
+        }
+
+        date {
+           types {
+                ku_video23 {
+                    disabled = 1
+                }
+            }
+        }
+
+    }
+}

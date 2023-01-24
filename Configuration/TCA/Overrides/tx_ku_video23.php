@@ -55,7 +55,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types'][$contentTypeName] ?? false)
                         'searchWholePhrase' => true,
                         'receiverClass' => \UniversityOfCopenhagen\KuVideo23\Backend\Wizard\SuggestWizardReceiver::class
                     ],
-                ]
+                ],
             ]
         ],
     ]
