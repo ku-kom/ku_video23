@@ -85,7 +85,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                 // Display error message
                 $message = GeneralUtility::makeInstance(
                     FlashMessage::class,
-                    $this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:error') .' :' . $e->getMessage(),
+                    $this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:error') .': ' . $e->getMessage(),
                     '',
                     FlashMessage::ERROR,
                     true

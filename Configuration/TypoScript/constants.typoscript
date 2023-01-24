@@ -1,10 +1,10 @@
-plugin.tx_kuvideo23 {
-    view {
-        # cat=plugin.tx_kuvideo23/file; type=string; label=Path to template root (FE)
+page {
+    templates {
+        # cat=ku video23/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ku_video23/Resources/Private/Templates/
-        # cat=plugin.tx_kuvideo23/file; type=string; label=Path to template partials (FE)
+        # cat=ku video23/file; type=string; label=Path to template partials (FE)
         partialRootPath = EXT:ku_video23/Resources/Private/Partials/
-        # cat=plugin.tx_kuvideo23/file; type=string; label=Path to template layouts (FE)
+        # cat=ku video23/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:ku_video23/Resources/Private/Layouts/
     }
 }

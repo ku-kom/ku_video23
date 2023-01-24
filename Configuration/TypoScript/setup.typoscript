@@ -6,37 +6,14 @@ lib.contentElement {
     templateName = Default
     templateRootPaths {
         7 = EXT:ku_video23/Resources/Private/Templates/ContentElements/
+        18 = {$page.templates.templateRootPath}
     }
     partialRootPaths {
         7 = EXT:ku_video23/Resources/Private/Partials/ContentElements/
+        8 = {$page.templates.partialRootPath}
     }
     layoutRootPaths {
         7 = EXT:ku_video23/Resources/Private/Layouts/ContentElements/
-    }
-}
-
-#################################
-#### MAKE PLUGIN ACT AS cTYPE ###
-#################################
-tt_content.ku_video23 >
-tt_content.ku_video23 =< tt_content.list.20.kuvideo23_pi1
-
-#################
-#### PLUGIN #####
-#################
-plugin.tx_kuvideo23 {
-    view {
-        templateRootPaths {
-             0 = EXT:ku_video23/Resources/Private/Templates/
-             1 = {$plugin.tx_kuvideo23.view.templateRootPath}
-        }
-        partialRootPaths {
-            0 = EXT:ku_video23/Resources/Private/Partials/
-            1 = {$plugin.tx_kuvideo23.view.partialRootPath}
-        }
-        layoutRootPaths {
-            0 = EXT:ku_video23/Resources/Private/Layouts/
-            1 = {$plugin.tx_kuvideo23.view.layoutRootPath}
-        }
+        8 = {$page.templates.layoutRootPath}
     }
 }

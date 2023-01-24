@@ -11,7 +11,6 @@ defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 $typo3VersionNumber = VersionNumberUtility::convertVersionNumberToInteger(
     VersionNumberUtility::getNumericTypo3Version()
@@ -23,14 +22,6 @@ if ($typo3VersionNumber < 12000000) {
       @import "EXT:ku_video23/Configuration/page.tsconfig"
    ');
 }
-
-// Register plugin
-ExtensionUtility::configurePlugin(
-    'ku_video23',
-    'Pi1',
-    [\UniversityOfCopenhagen\KuVideo23\Controller\VideoController::class => 'videoSearch'],
-    []
-);
 
 // KU register hook
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['ku_video23'] = \UniversityOfCopenhagen\KuVideo23\Hooks\DataHandlerHook::class;
