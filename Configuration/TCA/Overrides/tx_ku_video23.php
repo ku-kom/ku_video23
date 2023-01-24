@@ -50,7 +50,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types'][$contentTypeName] ?? false)
                 'suggestOptions' => [
                     'default' => [
                         'minimumCharacters' => 2,
-                        'maxItemsInResultList' => 100,
+                        'maxItemsInResultList' => 50,
                         'maxPathTitleLength' => 50,
                         'searchWholePhrase' => true,
                         'receiverClass' => \UniversityOfCopenhagen\KuVideo23\Backend\Wizard\SuggestWizardReceiver::class

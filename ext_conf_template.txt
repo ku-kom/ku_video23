@@ -1,2 +1,3 @@
 # cat=Data; type=string; label=LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:webservice
+// See https://www.twentythree.com/api/photo-list
 uri = https://video.ku.dk/api/photo/list

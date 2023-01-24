@@ -12,7 +12,6 @@ namespace UniversityOfCopenhagen\KuVideo23\Backend\Wizard;
  */
 
 use TYPO3\CMS\Backend\Form\Wizard\SuggestWizardDefaultReceiver;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\StringUtility;
 use TYPO3\CMS\Core\Http\RequestFactory;
@@ -28,32 +27,31 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
         $rows = [];
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
         $url = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ku_video23', 'uri');
-        //$query = strtolower($params['value']);
+        $query = strtolower($params['value']);
         $additionalOptions = [
             //'debug' => true,
             'form_params' => [
               'format' => 'json',
-              //'searchstring' => $query
+              'search' => $query
             ]
           ];
 
         if (!empty($url)) {
             try {
                 $response = $requestFactory->request($url, 'POST', $additionalOptions);
-                
                 // Get the content on a successful request
                 if ($response->getStatusCode() === 200) {
-                   // if (false !== strpos($response->getHeaderLine('Content-Type'), 'application/json')) {
-                        $string = $response->getBody()->getContents();
+                    if (false !== strpos($response->getHeaderLine('Content-Type'), 'application/x-javascript')) {
                         //getContents() returns a string
+                        $string = $response->getBody()->getContents();
                         // Remove invalid varible from video23 response
                         $visual = preg_replace('/^var visual = /', '', $string);
                         // Convert string back to json
                         $visual = iconv('ISO-8859-1', 'UTF-8', $visual);
                         $data = json_decode((string) $visual, true);
-                    
                         $videos = $data['photos'];
-                        var_dump(gettype($data));
+                        var_dump($videos);
+                        
                         foreach ($videos as $video) {
                             $newUid = StringUtility::getUniqueId('NEW');
                             $rows[$this->table . '_' . $newUid] = [
@@ -63,23 +61,18 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                                 'sprite' => '',
                                 'style' => '',
                                 'table' => $this->table,
-                                'text' => '<table class="table-items">
-                                        <tr>
-                                            <td class="img-fluid video-thumbnail"><img src="'. $video['quad100_download'] .'" alt="" class="list-item-img" /></td>
-                                            <td><div class="video-title">'.$video['title'] . '</div><br>'. $video['publish_date__date'] .'</td>
-                                        </tr>
-                                    </table>',
+                                'text' => '<div>' .$video['title'] . '</div>',
                                 'uid' => $newUid . $video['photo_id'],
                             ];
                         }
-                    //}
+                    }
                 } else {
-                    // Sisplay error message
+                    // Display error message
                     $flashMessage = GeneralUtility::makeInstance(
-                        \TYPO3\CMS\Core\Messaging\FlashMessage::class,
+                        FlashMessage::class,
                         $this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:error'),
                         '',
-                        \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR,
+                        FlashMessage::ERROR,
                         true
                     );
                     $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
@@ -90,12 +83,16 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                 return $rows;
             } catch (\Exception $e) {
                 // Display error message
-                $this->addFlashMessage(
-                    'Error: ' . $e->getMessage(),
+                $message = GeneralUtility::makeInstance(
+                    FlashMessage::class,
+                    $this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:error') .' :' . $e->getMessage(),
                     '',
                     FlashMessage::ERROR,
-                    false
+                    true
                 );
+                $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
+                $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
+                $messageQueue->addMessage($message);
             }
         }
     }

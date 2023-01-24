@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace UniversityOfCopenhagen\KuVideo23\Hooks;
 
 /**
- * This file is part of the "news_tagsuggest" Extension for TYPO3 CMS.
+ * This file is part of the "ku_video23" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -20,7 +20,6 @@ use TYPO3\CMS\Core\Utility\StringUtility;
 
 class DataHandlerHook
 {
-
     protected DataHandler $localDataHandler;
 
     public function processDatamap_preProcessFieldArray(&$fieldArray, $table, $id, DataHandler $parentObject): void
@@ -36,7 +35,7 @@ class DataHandlerHook
         GeneralUtility::makeInstance(ConnectionPool::class)
         ->getConnectionForTable('tt_content')
         ->update(
-        'tt_content',
+            'tt_content',
             [
                 'ku_video23_search' => $value,
             ],
@@ -47,5 +46,4 @@ class DataHandlerHook
 
         unset($fieldArray['ku_video23_search']);
     }
-
 }
