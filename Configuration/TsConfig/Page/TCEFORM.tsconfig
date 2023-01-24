@@ -9,14 +9,6 @@ TCEFORM {
             }
         }
 
-        header {
-           types {
-                ku_video23 {
-                    disabled = 1
-                }
-            }
-        }
-
         header_link {
            types {
                 ku_video23 {

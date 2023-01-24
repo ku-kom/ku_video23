@@ -51,7 +51,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                         $data = json_decode((string) $visual, true);
                         $videos = $data['photos'];
                         var_dump($videos);
-                        
+
                         foreach ($videos as $video) {
                             $newUid = StringUtility::getUniqueId('NEW');
                             $rows[$this->table . '_' . $newUid] = [
@@ -68,7 +68,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                     }
                 } else {
                     // Display error message
-                    $flashMessage = GeneralUtility::makeInstance(
+                    $message = GeneralUtility::makeInstance(
                         FlashMessage::class,
                         $this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:error'),
                         '',
@@ -76,8 +76,8 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                         true
                     );
                     $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
-                    $defaultFlashMessageQueue = $flashMessageService->getMessageQueueByIdentifier();
-                    $defaultFlashMessageQueue->enqueue($flashMessage);
+                    $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
+                    $messageQueue->addMessage($message);
                 }
 
                 return $rows;
