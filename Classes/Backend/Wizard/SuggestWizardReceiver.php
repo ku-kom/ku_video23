@@ -36,7 +36,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
             ]
           ];
 
-        if (!empty($url)) {
+        if (isset($url)) {
             try {
                 $response = $requestFactory->request($url, 'POST', $additionalOptions);
                 // Get the content on a successful request
@@ -46,8 +46,11 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                         $string = $response->getBody()->getContents();
                         // Remove invalid "var visual" variable from video23 response
                         $visual = preg_replace('/^var visual = /', '', $string);
+                        // Decode string to json
                         $data = json_decode((string) $visual, true);
+                        // Get video node
                         $videos = $data['photos'];
+
                         var_dump($videos);
 
                         foreach ($videos as $video) {
@@ -60,7 +63,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                                 'style' => '',
                                 'table' => $this->table,
                                 'text' => '<div>' .$video['title'] . '</div>',
-                                'uid' => $newUid . $video['photo_id'],
+                                'uid' => $newUid . '_' . $video['photo_id'],
                             ];
                         }
                     }
