@@ -1,10 +1,16 @@
 page {
     templates {
-        # cat=ku video23/file; type=string; label=Path to template root (FE)
+        # cat=KU video23/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ku_video23/Resources/Private/Templates/
-        # cat=ku video23/file; type=string; label=Path to template partials (FE)
+        # cat=KU video23/file; type=string; label=Path to template partials (FE)
         partialRootPath = EXT:ku_video23/Resources/Private/Partials/
-        # cat=ku video23/file; type=string; label=Path to template layouts (FE)
+        # cat=KU video23/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:ku_video23/Resources/Private/Layouts/
+    }
+    additionalAssets {
+        # cat=KU video23/Assets/t0; type=string; label=CSS assets: Path to stylesheet.
+        extraCss =
+        # cat=KU video23/Assets/t1; type=string; label=JavaScript assets: Path to javaScript file.
+        extraJs = 
     }
 }

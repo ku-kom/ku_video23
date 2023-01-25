@@ -1,20 +1,25 @@
 ######################################
-#### cType KU PHONEBOOK ##############
+###### cType KU VIDEO23 ##############
 ######################################
-lib.contentElement = FLUIDTEMPLATE
-lib.contentElement {
+tt_content.ku_video23 >
+tt_content.ku_video23 =< lib.contentElement
+tt_content.ku_video23 {
+
+    ################
+    ### TEMPLATE ###
+    ################
     templateName = Default
     templateRootPaths {
-        7 = EXT:ku_video23/Resources/Private/Templates/ContentElements/
-        18 = {$page.templates.templateRootPath}
+        10 = EXT:ku_video23/Resources/Private/Templates/
+        10 = {$page.templates.templateRootPath}
     }
     partialRootPaths {
-        7 = EXT:ku_video23/Resources/Private/Partials/ContentElements/
-        8 = {$page.templates.partialRootPath}
+        10 = EXT:ku_video23/Resources/Private/Partials/
+        20 = {$page.templates.partialRootPath}
     }
     layoutRootPaths {
-        7 = EXT:ku_video23/Resources/Private/Layouts/ContentElements/
-        8 = {$page.templates.layoutRootPath}
+        10 = EXT:ku_video23/Resources/Private/Layouts/
+        20 = {$page.templates.layoutRootPath}
     }
 
     ##########################
@@ -36,4 +41,22 @@ lib.contentElement {
             as = records
         }
     }
+}
+
+##########################
+#### OPTION TO ADD CSS ###
+##########################
+lib.pagecss = TEXT
+lib.pagecss {
+    if.isTrue = {$page.additionalAssets.extraCss}
+    value = {$page.additionalAssets.extraCss}
+}
+
+##########################
+#### OPTION TO ADD JS ####
+##########################
+lib.pagejs = TEXT
+lib.pagejs {
+    if.isTrue = {$page.additionalAssets.extraJs}
+    value = {$page.additionalAssets.extraJs}
 }
