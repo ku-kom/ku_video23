@@ -1,7 +1,7 @@
 ####################################
 #### NEW CONTENT ELEMENT WIZARD ####
 ####################################
-mod.wizards.newContentElement.wizardItems.plugins {
+mod.wizards.newContentElement.wizardItems.media {
     elements {
         ku_video23 {
             iconIdentifier = ku-video23-icon
