@@ -62,7 +62,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                                 'sprite' => '',
                                 'style' => '',
                                 'table' => $this->table,
-                                'text' => '<div>' .$video['title'] . '</div>',
+                                'text' => '<div>' . $video['title'] . '</div>',
                                 'uid' => $newUid . '_' . $video['photo_id'],
                             ];
                         }
