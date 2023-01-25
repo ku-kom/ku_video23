@@ -1,4 +1,4 @@
-page {
+video23 {
     templates {
         # cat=KU video23/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ku_video23/Resources/Private/Templates/
@@ -7,7 +7,7 @@ page {
         # cat=KU video23/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:ku_video23/Resources/Private/Layouts/
     }
-    additionalAssets {
+    assets {
         # cat=KU video23/Assets/t0; type=string; label=CSS assets: Path to stylesheet.
         extraCss =
         # cat=KU video23/Assets/t1; type=string; label=JavaScript assets: Path to javaScript file.

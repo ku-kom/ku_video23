@@ -11,15 +11,15 @@ tt_content.ku_video23 {
     templateName = Default
     templateRootPaths {
         10 = EXT:ku_video23/Resources/Private/Templates/
-        10 = {$page.templates.templateRootPath}
+        10 = {$video23.templates.templateRootPath}
     }
     partialRootPaths {
         10 = EXT:ku_video23/Resources/Private/Partials/
-        20 = {$page.templates.partialRootPath}
+        20 = {$video23.templates.partialRootPath}
     }
     layoutRootPaths {
         10 = EXT:ku_video23/Resources/Private/Layouts/
-        20 = {$page.templates.layoutRootPath}
+        20 = {$video23.templates.layoutRootPath}
     }
 
     ##########################
@@ -48,8 +48,8 @@ tt_content.ku_video23 {
 ##########################
 lib.pagecss = TEXT
 lib.pagecss {
-    if.isTrue = {$page.additionalAssets.extraCss}
-    value = {$page.additionalAssets.extraCss}
+    if.isTrue = {$video23.assets.extraCss}
+    value = {$video23.assets.extraCss}
 }
 
 ##########################
@@ -57,6 +57,6 @@ lib.pagecss {
 ##########################
 lib.pagejs = TEXT
 lib.pagejs {
-    if.isTrue = {$page.additionalAssets.extraJs}
-    value = {$page.additionalAssets.extraJs}
+    if.isTrue = {$video23.assets.extraJs}
+    value = {$video23.assets.extraJs}
 }
