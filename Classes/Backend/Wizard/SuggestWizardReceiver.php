@@ -40,6 +40,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
             try {
                 $response = $requestFactory->request($url, 'POST', $additionalOptions);
                 // Get the content on a successful request
+                // e.g. https://video.ku.dk/api/photo/list?format=json&search=morten
                 if ($response->getStatusCode() === 200) {
                     if (false !== strpos($response->getHeaderLine('Content-Type'), 'application/x-javascript')) {
                         // getContents() returns a string
@@ -66,6 +67,8 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                                 'uid' => $newUid . '_' . $video['photo_id'],
                             ];
                         }
+
+                        return $rows;
                     }
                 } else {
                     // Display error message
@@ -81,7 +84,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                     $messageQueue->addMessage($message);
                 }
 
-                return $rows;
+                
             } catch (\Exception $e) {
                 // Display error message
                 $message = GeneralUtility::makeInstance(
