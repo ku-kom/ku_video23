@@ -16,4 +16,24 @@ lib.contentElement {
         7 = EXT:ku_video23/Resources/Private/Layouts/ContentElements/
         8 = {$page.templates.layoutRootPath}
     }
+
+    ##########################
+    ### DATA PREPROCESSING ###
+    ##########################
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = media
+            as = media
+        }
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            if.isTrue.field = ku_video23_search
+            table = tt_content
+            uidInList.field = ku_video23_search
+            pidInList = 0
+            orderBy = sorting
+            as = records
+        }
+    }
 }
