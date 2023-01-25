@@ -27,23 +27,23 @@ class DataHandlerHook
         if ($table !== 'tt_content') {
             return;
         }
-        if (array_key_exists('ku_video23_search', $fieldArray) === false) {
+        if (array_key_exists('tx_ku_video23_search', $fieldArray) === false) {
             return;
         }
-        $value = $fieldArray['ku_video23_search'];
+        $value = $fieldArray['tx_ku_video23_search'];
 
         GeneralUtility::makeInstance(ConnectionPool::class)
         ->getConnectionForTable('tt_content')
         ->update(
             'tt_content',
             [
-                'ku_video23_search' => $value,
+                'tx_ku_video23_search' => $value,
             ],
             [
                 'uid' => $id
             ]
         );
 
-        unset($fieldArray['ku_video23_search']);
+        unset($fieldArray['tx_ku_video23_search']);
     }
 }

@@ -33,9 +33,9 @@ tt_content.ku_video23 {
         }
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         20 {
-            if.isTrue.field = ku_video23_search
+            if.isTrue.field = tx_ku_video23_search
             table = tt_content
-            uidInList.field = ku_video23_search
+            uidInList.field = tx_ku_video23_search
             pidInList = 0
             orderBy = sorting
             as = records
