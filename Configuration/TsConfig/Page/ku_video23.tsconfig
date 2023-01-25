@@ -1,6 +1,6 @@
-####################################
-#### NEW CONTENT ELEMENT WIZARD ####
-####################################
+############################################
+#### NEW VIDEO23 CONTENT ELEMENT WIZARD ####
+############################################
 mod.wizards.newContentElement.wizardItems.media {
     elements {
         ku_video23 {
