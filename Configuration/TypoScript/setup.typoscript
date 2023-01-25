@@ -46,8 +46,8 @@ tt_content.ku_video23 {
 ##########################
 #### OPTION TO ADD CSS ###
 ##########################
-lib.pagecss = TEXT
-lib.pagecss {
+lib.video23.pagecss = TEXT
+lib.video23.pagecss {
     if.isTrue = {$video23.assets.extraCss}
     value = {$video23.assets.extraCss}
 }
@@ -55,8 +55,8 @@ lib.pagecss {
 ##########################
 #### OPTION TO ADD JS ####
 ##########################
-lib.pagejs = TEXT
-lib.pagejs {
+lib.video23.pagejs = TEXT
+lib.video23.pagejs {
     if.isTrue = {$video23.assets.extraJs}
     value = {$video23.assets.extraJs}
 }
