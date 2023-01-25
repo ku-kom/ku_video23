@@ -4,6 +4,11 @@
 <f:spaceless>
     <f:section name="Main">
         <f:debug>{_all}</f:debug>
+        <div class="video-container">
+            <f:if condition="{data.header}">
+                <h2>{data.header}</h2>
+            </f:if>
+        </div>
         <f:if condition="{lib.video23.pagecss !== ''}">
             <f:asset.css identifier="video23CSS" href="{f:cObject(typoscriptObjectPath: 'lib.video23.pagecss')}" />
         </f:if>
