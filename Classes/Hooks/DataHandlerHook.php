@@ -32,6 +32,9 @@ class DataHandlerHook
         }
         $value = $fieldArray['tx_ku_video23_search'];
 
+        // var_dump($fieldArray);
+        // die();
+
         GeneralUtility::makeInstance(ConnectionPool::class)
         ->getConnectionForTable('tt_content')
         ->update(
