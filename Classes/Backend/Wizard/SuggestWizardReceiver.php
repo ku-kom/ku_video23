@@ -105,18 +105,4 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
     {
         return $GLOBALS['LANG'];
     }
-
-    /**
-     * Convert seconds to hh:mm:ss
-     * @param $seconds
-     */
-    protected function convertSeconds($seconds): ?string
-    {
-        $ss = $seconds;
-        $H = floor($ss / 3600);
-        $i = floor(($ss / 60) % 60);
-        $s = $ss % 60;
-        
-        return sprintf('%02d:%02d:%02d', $H, $i, $s); 
-    }
 }
