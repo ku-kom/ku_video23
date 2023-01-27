@@ -26,7 +26,9 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
     {
         $rows = [];
         $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
-        $url = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ku_video23', 'uri');
+        $domain = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ku_video23', 'uri');
+        $endpoint = '/api/photo/list';
+        $url = $domain . $endpoint;
         $query = strtolower($params['value']);
         $additionalOptions = [
             //'debug' => true,
