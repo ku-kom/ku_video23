@@ -11,7 +11,7 @@ tt_content.ku_video23 {
     templateName = Default
     templateRootPaths {
         10 = EXT:ku_video23/Resources/Private/Templates/
-        10 = {$video23.templates.templateRootPath}
+        20 = {$video23.templates.templateRootPath}
     }
     partialRootPaths {
         10 = EXT:ku_video23/Resources/Private/Partials/
