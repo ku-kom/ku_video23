@@ -19,9 +19,11 @@ use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\StringUtility;
+use UniversityOfCopenhagen\KuVideo23\Utility\Video;
 
 class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
 {
+    public const DELIMITER = '__--__';
     public function queryTable(&$params, $recursionCounter = 0)
     {
         $rows = [];
@@ -54,9 +56,14 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                         // Get video node
                         $videos = $data['photos'];
 
-                        var_dump($videos);
+                        //var_dump($videos);
+                        
 
                         foreach ($videos as $video) {
+                            $duration = Video::formatTimestamp($video['video_length']);
+                            $thumb = $domain . $video['quad100_download'];
+                            $title = htmlspecialchars($video['title'], ENT_QUOTES);
+
                             $newUid = StringUtility::getUniqueId('NEW');
                             $rows[$this->table . '_' . $newUid] = [
                                 'class' => '',
@@ -65,8 +72,12 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                                 'sprite' => '',
                                 'style' => '',
                                 'table' => $this->table,
-                                'text' => '<div>' . $video['title'] . '</div>',
-                                'uid' => $newUid . '_' . $video['photo_id'],
+                                'text' => '<div class="video-data">
+                                            <div class="video-img"><img src="'. $thumb .'" alt="" class="img-fluid" /></div>
+                                            <div class="video-content">
+                                                <div class="video-title">'. $title . '</div>'. sprintf($this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:duration')) .': '. $duration .'<br>'. sprintf($this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:views')) .': '. $video['view_count'] .'</div>
+                                          </div>',
+                                'uid' => $newUid . self::DELIMITER . $video['photo_id'],
                             ];
                         }
 
@@ -85,8 +96,6 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                     $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
                     $messageQueue->addMessage($message);
                 }
-
-                
             } catch (\Exception $e) {
                 // Display error message
                 $message = GeneralUtility::makeInstance(

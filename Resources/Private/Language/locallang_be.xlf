@@ -19,6 +19,12 @@
         <trans-unit id="error">
             <source>Error fetching video</source>
         </trans-unit>
+        <trans-unit id="views">
+            <source>View count</source>
+        </trans-unit>
+        <trans-unit id="duration">
+            <source>Duration</source>
+        </trans-unit>
         </body>
     </file>
 </xliff>

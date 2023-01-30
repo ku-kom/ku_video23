@@ -7,3 +7,6 @@
  */
 
 defined('TYPO3') or die('Access denied.');
+
+// Backend stylesheet
+$GLOBALS['TBE_STYLES']['skins']['ku_prototype']['stylesheetDirectories'][] = 'EXT:ku_video23/Resources/Public/Css/Backend/';

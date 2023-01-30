@@ -1,0 +1,20 @@
+.autocomplete-results .video-data {
+    display: flex;
+    flex-direction: row;
+}
+
+.video-img {
+    flex: 0 0 60px;
+}
+
+.video-content {
+    flex: 1;
+}
+
+.video-title {
+    font-weight: 700;;
+}
+
+.video-img img {
+    max-width: 50px;
+}
