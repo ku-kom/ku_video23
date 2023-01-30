@@ -24,6 +24,7 @@ use UniversityOfCopenhagen\KuVideo23\Utility\Video;
 class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
 {
     public const DELIMITER = '__--__';
+    
     public function queryTable(&$params, $recursionCounter = 0)
     {
         $rows = [];
