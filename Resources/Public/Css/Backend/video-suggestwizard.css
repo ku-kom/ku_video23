@@ -12,9 +12,14 @@
 }
 
 .video-title {
-    font-weight: 700;;
+    display: inline-block;
+    font-weight: 700;
 }
 
 .video-img img {
     max-width: 50px;
+}
+
+.video-id {
+    color: #757575;
 }

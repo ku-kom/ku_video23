@@ -22,6 +22,10 @@ class Video
      */
     public static function formatTimestamp($inputSeconds)
     {
+        if (!$inputSeconds) {
+            return;
+        }
+        
         $secondsInAMinute = 60;
         $secondsInAnHour = 60 * $secondsInAMinute;
         $secondsInADay = 24 * $secondsInAnHour;
