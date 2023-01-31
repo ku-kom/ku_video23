@@ -57,15 +57,14 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                         // Get video node
                         $videos = $data['photos'];
 
-                        //var_dump($videos);
-                        
+                        var_dump($videos);
 
                         foreach ($videos as $video) {
                             $duration = Video::formatTimestamp($video['video_length']);
                             $thumb = $domain . $video['quad100_download'];
                             $title = htmlspecialchars($video['title'], ENT_QUOTES);
-
                             $newUid = StringUtility::getUniqueId('NEW');
+                            
                             $rows[$this->table . '_' . $newUid] = [
                                 'class' => '',
                                 'label' => $video['title'],
@@ -76,7 +75,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                                 'text' => '<div class="video-data">
                                             <div class="video-img"><img src="'. $thumb .'" alt="" class="img-fluid" /></div>
                                             <div class="video-content">
-                                                <div class="video-title">'. $title . '</div>'. sprintf($this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:duration')) .': '. $duration .'<br>'. sprintf($this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:views')) .': '. $video['view_count'] .'</div>
+                                                <div class="video-title">'. $title . '</div><span>' . $video['photo_id'] . '</span>'. sprintf($this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:duration')) .': '. $duration .'<br>'. sprintf($this->getLanguageService()->sL('LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:views')) .': '. $video['view_count'] .'</div>
                                           </div>',
                                 'uid' => $newUid . self::DELIMITER . $video['photo_id'],
                             ];
