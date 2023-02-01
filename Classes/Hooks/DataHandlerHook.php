@@ -27,10 +27,10 @@ class DataHandlerHook
         if ($table !== 'tt_content') {
             return;
         }
-        if (array_key_exists('tx_ku_video23_search', $fieldArray) === false) {
+        if (array_key_exists('tx_ku_video23', $fieldArray) === false) {
             return;
         }
-        $value = $fieldArray['tx_ku_video23_search'];
+        $value = $fieldArray['tx_ku_video23'];
 
         // var_dump($fieldArray);
         // die();
@@ -40,13 +40,13 @@ class DataHandlerHook
         ->update(
             'tt_content',
             [
-                'tx_ku_video23_search' => $value,
+                'tx_ku_video23' => $value,
             ],
             [
                 'uid' => $id
             ]
         );
 
-        unset($fieldArray['tx_ku_video23_search']);
+        unset($fieldArray['tx_ku_video23']);
     }
 }
