@@ -9,7 +9,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'KU Video23',
-    'description' => 'Fetch videos from TwentyThree.',
+    'description' => 'Fetch videos from TwentyThree api.',
     'category' => 'fe',
     'constraints' => [
         'depends' => [
