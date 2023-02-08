@@ -57,7 +57,7 @@ class SuggestWizardReceiver extends SuggestWizardDefaultReceiver
                             
                             $rows[$this->table . '_' . $newUid] = [
                                 'class' => '',
-                                'label' => $video['title'],
+                                'label' => $video['title'] . ' (' . $video['photo_id'] . ')',
                                 'path' => '',
                                 'sprite' => '',
                                 'style' => '',
