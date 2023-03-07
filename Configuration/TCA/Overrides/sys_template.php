@@ -14,6 +14,6 @@ call_user_func(function () {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
         $extensionKey,
         'Configuration/TypoScript',
-        'LLL:EXT:ku_video23/Resources/Private/Language/locallang_be.xlf:video23_title'
+        'KU Video23'
     );
 });
