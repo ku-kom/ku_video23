@@ -4,9 +4,12 @@
         <header>
         </header>
         <body>
-        <trans-unit id="no_video">
-            <source>The video cannot be fetched. Try again later.</source>
-        </trans-unit>
+            <trans-unit id="no_video">
+                <source>The video cannot be fetched. Try again later.</source>
+            </trans-unit>
+            <trans-unit id="play">
+                <source>Play</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
