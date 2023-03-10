@@ -9,7 +9,7 @@ video23 {
     }
     assets {
         # cat=KU video23/Assets/t0; type=string; label=CSS assets: Path to stylesheet.
-        extraCss =
+        extraCss = EXT:ku_video23/Resources/Public/Css/Dist/video-player.min.css
         # cat=KU video23/Assets/t1; type=string; label=JavaScript assets: Path to javaScript file.
         extraJs =
     }
