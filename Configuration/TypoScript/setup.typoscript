@@ -8,7 +8,7 @@ tt_content.ku_video23 {
     ################
     ### TEMPLATE ###
     ################
-    templateName = Default
+    templateName = Player
     templateRootPaths {
         10 = EXT:ku_video23/Resources/Private/Templates/
         20 = {$video23.templates.templateRootPath}

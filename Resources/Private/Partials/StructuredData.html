@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:section name="Data">
+  <f:asset.script type="application/ld+json" identifier="{data.uid -> f:format.raw()}">
+    {
+        "@context": "https://schema.org/",
+        "@type": "VideoObject",
+        "name": "Learn JSON-LD",
+        "@id": "http://example.com/video",
+        "datePublished": "2015-10-02",
+        "description" : "In this video, we'll teach you how to use json ld and get 6 pack abs.",
+        "thumbnailURL" : "http://placehold.it/350x150",
+        "thumbnail" : "http://placehold.it/350x150",
+        "contentUrl": "http://www.example.com/supershop.flv",
+        "embedUrl": "http://www.example.com/videoplayer.swf?video=123",
+        "interactionCount": "2347"
+        "duration" : "PT0H5M45S",
+        "uploadDate" : "2015-10-02",
+        "author": {
+          "@type": "Person",
+          "name": "Jason Lord"
+        }
+      }
+  </f:asset.script>
+</f:section>
+
+</html>
