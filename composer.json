@@ -6,7 +6,6 @@
     "license": ["GPL-2.0-or-later"],
     "keywords": ["TYPO3 CMS"],
     "require": {
-        "league/oauth2-client": "^2.6.1"
     },
     "autoload": {
         "psr-4": {
