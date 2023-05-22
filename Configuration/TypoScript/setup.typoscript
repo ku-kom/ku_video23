@@ -50,6 +50,7 @@ lib.video23.pagecss = TEXT
 lib.video23.pagecss {
     if.isTrue = {$video23.assets.extraCss}
     value = {$video23.assets.extraCss}
+    htmlSanitize = 1
 }
 
 ##########################
@@ -59,4 +60,5 @@ lib.video23.pagejs = TEXT
 lib.video23.pagejs {
     if.isTrue = {$video23.assets.extraJs}
     value = {$video23.assets.extraJs}
+    htmlSanitize = 1
 }
